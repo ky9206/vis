@@ -779,12 +779,16 @@ const quotes = [
     { text: "Knows what's going on… even before we do.", author: "Chakri" },
     { text: "Leads in a way that makes everyone better at what they do.", author: "Harish" },
     { text: "Calm outside, probably debugging us inside.", author: "Sakshi" },
-    { text: "Basically the team's WiFi — when things work, it's because of him.", author: "Harsha" },
-    { text: "Leads with clarity, even when things aren't.", author: "Naveen" },
-    { text: "Creates order without making it feel forced.", author: "Ganesh" }
+    { text: "Basically the team's WiFi — when things work, it's because of him.", author: "Harsha"},
+    { 
+        text: "We ran a poll for Vamshi", 
+        author: "", 
+        special: true,
+        style: "font-style: normal; font-weight: 600; color: var(--gold);" 
+    }
 ];
 
-const videos = ["vi1.mp4", "vi2.mp4"]; // two video files
+const videos = ["vi1.mp4", "vi2.mp4","vi3.mp4"]; // two video files
 let videoMuted = [false, false];     // track mute state per video
 
 /* Build sequence: [img,img,img, quote,quote,quote, video] x2 */
@@ -809,7 +813,11 @@ function buildSequence() {
             seq.push({ type: 'video', src: videos[vidIdx], vidIdx: vidIdx });
             vidIdx++;
         }
-    }
+        // After adding quote
+        if (quoteIdx === 4) {
+            seq.push({ type: 'video', src: "extra.mp4", vidIdx: 99 });
+        }
+            }
 
     return seq;
 }
